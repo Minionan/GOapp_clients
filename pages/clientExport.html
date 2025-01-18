@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Export Clients</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="client-add-container">
+        <h1>Select Clients to Export</h1>
+        {{if .Error}}
+        <div class="error">{{.Error}}</div>
+        {{end}}
+        <form id="exportForm" method="post" action="/clients/export">
+            <div class="client-add-form__group">
+                {{range .Clients}}
+                <label class="client-add-form__label">
+                    <input type="checkbox" name="selectedClients" value="{{.ID}}" checked>
+                    {{.ClientName}} ({{.Abbreviation}})
+                </label>
+                {{end}}
+            </div>
+            <div class="client-add-form__buttons">
+                <button type="submit" class="client-add-form__button submit-btn">Export Selected</button>
+                <button type="button" class="client-add-form__button cancel-btn" onclick="window.location.href='/clients'">Go Back</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

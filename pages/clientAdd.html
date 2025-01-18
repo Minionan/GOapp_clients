@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Client</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="client-add-container">
+        <h1>Add New Client</h1>
+        {{if .Error}}
+        <div class="error">{{.Error}}</div>
+        {{end}}
+        <form method="POST" action="/clients/add" class="client-add-form">
+            <div class="client-add-form__group">
+                <label for="clientName" class="client-add-form__label">Client Name:</label>
+                <input type="text" id="clientName" name="clientName" class="client-add-form__input" required>
+            </div>
+            <div class="client-add-form__group">
+                <label for="parentName" class="client-add-form__label">Payee Name:</label>
+                <input type="text" id="parentName" name="parentName" class="client-add-form__input" required>
+            </div>
+            <div class="client-add-form__group">
+                <label for="address1" class="client-add-form__label">Address Line 1:</label>
+                <input type="text" id="address1" name="address1" class="client-add-form__input" required>
+            </div>
+            <div class="client-add-form__group">
+                <label for="address2" class="client-add-form__label">Address Line 2:</label>
+                <input type="text" id="address2" name="address2" class="client-add-form__input" required>
+            </div>
+            <div class="client-add-form__group">
+                <label for="phone" class="client-add-form__label">Phone:</label>
+                <input type="tel" id="phone" name="phone" class="client-add-form__input" required>
+            </div>
+            <div class="client-add-form__group">
+                <label for="email" class="client-add-form__label">Email:</label>
+                <input type="email" id="email" name="email" class="client-add-form__input" required>
+            </div>
+            <div class="client-add-form__group">
+                <label for="abbreviation" class="client-add-form__label">Abbreviation:</label>
+                <input type="text" id="abbreviation" name="abbreviation" class="client-add-form__input" required>
+            </div>
+            <div class="client-add-form__group">
+                <label for="status" class="client-add-form__label">Status:</label>
+                <select id="status" name="active" class="client-add-form__input">
+                    <option value="1" selected>Active</option>
+                    <option value="0">Inactive</option>
+                </select>
+            </div>
+            <div class="client-add-form__buttons">
+                <button type="submit" class="client-add-form__button submit-btn">Add Client</button>
+                <button type="button" class="client-add-form__button cancel-btn" onclick="window.location.href='/clients'">Cancel</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+# Configuration
+session_key.txt
+
+# Database
+db/*.db
+
+# Backup
+/backup 
+
+# IDE files
+.idea/
+.vscode/
+
+# Compiled binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Log files
+*.log

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Clients Page</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="clients-container">
+        <h1>Welcome, {{.Name}}!</h1>
+        <p>Here you can create, change, and delete clients' data.</p>
+        <div class="clients-actions">
+            <a href="/clients/add" class="button">Add New Client</a>
+            <a href="/clients/export" class="button">Client Export</a>
+            <form action="/clients/import" method="post" enctype="multipart/form-data" style="display: inline;">
+                <input type="file" name="file" id="importFile" accept=".json" style="display: none;" onchange="this.form.submit()">
+                <a href="#" class="button" onclick="document.getElementById('importFile').click()">Client Database Import</a>
+            </form>
+        </div>
+        <!-- Display existing clients in a table -->
+        {{if .Clients}}
+        <table class="clients-table">
+            <tr>
+                <th>Abbr.</th>
+                <th>Client Name</th>
+                <th>Payee Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+            {{range .Clients}}
+            <tr>
+                <td>{{.Abbreviation}}</td>
+                <td>{{.ClientName}}</td>
+                <td>{{.ParentName}}</td>
+                <td>{{.Phone}}</td>
+                <td>{{.Email}}</td>
+                <td>{{if .Active}}Active{{else}}Inactive{{end}}</td>
+                <td>
+                    <a href="/clients/edit/{{.ID}}" class="edit-btn">Edit</a>
+                </td>
+            </tr>
+            {{end}}
+        </table>
+        {{else}}
+        <p>No clients found.</p>
+        {{end}}
+    </div>
+</body>
+</html>
