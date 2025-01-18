@@ -10,9 +10,10 @@ Clone the repository with `git clone https://github.com/Minionan/GOapp_invoice.g
 
 ### Initialising user database
 
-1. Run `init_db.go` script by typing in terminal `go run init_db.go`
-2. Verify if a new SQLite database file was created in db folder
-3. The default data.db file has no records, you will have to create them manually
+1. Ensure that there is a db folder in main project folder, if not create one yourself
+2. Run `init_db.go` script by typing in terminal `go run init_db.go`
+3. Verify if a new SQLite database file was created in db folder
+4. The default data.db file has no records, you will have to create them manually
 
 ## Run app
 
